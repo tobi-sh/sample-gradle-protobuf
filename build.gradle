@@ -24,15 +24,8 @@ sourceSets {
             srcDir 'src/main/proto'
         }
         java {
-            srcDir 'src/main/java'
-        }
-    }
-    test {
-        proto {
-            srcDir 'src/test/proto'
-        }
-        proto {
-            srcDir 'src/test/java'
+        	// include selfwritten and generated code
+        	srcDirs 'src/main/java', 'generated-sources/main/java'            
         }
     }
 }
@@ -43,6 +36,9 @@ protobuf {
         // Download from repositories
         artifact = 'com.google.protobuf:protoc:3.0.0-alpha-3'
     }
+    
+    generateProtoTasks.generatedFilesBaseDir = 'generated-sources'
+    
     generateProtoTasks {
         // all() returns the collection of all protoc tasks
         all().each { task ->
@@ -56,4 +52,6 @@ protobuf {
         ofSourceSet('main')
 
     }
+
+    
 }
