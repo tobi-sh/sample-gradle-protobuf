@@ -1,6 +1,7 @@
 package tutorial;
 
-option java_package = "com.vach.tryout.protobuf";
+option java_package = "com.vach.tryout";
+
 option java_outer_classname = "AddressBookProtos";
 
 message Person {

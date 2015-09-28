@@ -14,10 +14,13 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    compile 'com.google.protobuf:protobuf-java:3.0.0-beta-1'
+}
+
 sourceSets {
     main {
         proto {
-            // In addition to the default 'src/main/proto'
             srcDir 'src/main/proto'
         }
         java {
@@ -26,8 +29,10 @@ sourceSets {
     }
     test {
         proto {
-            // In addition to the default 'src/test/proto'
             srcDir 'src/test/proto'
+        }
+        proto {
+            srcDir 'src/test/java'
         }
     }
 }
